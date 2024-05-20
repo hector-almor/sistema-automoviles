@@ -9,11 +9,11 @@ namespace Sistema_automóviles.Models.Classes
     internal class Auto
     {
         public int? ID_auto { get; set; }
-        public int? ID_proveedor {  get; set; }
         public string? Marca { get; set; }
         public string? Modelo { get; set; }
         public int? Año { get; set; }
-        public float? Precio { get; set; }
         public int? Existencia { get; set; }
+        public float? Costo { get; set; }
+        public float Precio { get; set; }
     }
 }

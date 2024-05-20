@@ -29,3 +29,4 @@ D:\Users\Héctor\Documents\ProgramaciónH\Sistema_automóviles\Sistema_automóvi
 D:\Users\Héctor\Documents\ProgramaciónH\Sistema_automóviles\Sistema_automóviles\obj\Debug\net8.0-windows\Sistema_automóviles.pdb
 D:\Users\Héctor\Documents\ProgramaciónH\Sistema_automóviles\Sistema_automóviles\obj\Debug\net8.0-windows\Sistema_automóviles.genruntimeconfig.cache
 D:\Users\Héctor\Documents\ProgramaciónH\Sistema_automóviles\Sistema_automóviles\obj\Debug\net8.0-windows\ref\Sistema_automóviles.dll
+D:\Users\Héctor\Documents\ProgramaciónH\Sistema_automóviles\Sistema_automóviles\obj\Debug\net8.0-windows\Sistema_automóviles.sourcelink.json

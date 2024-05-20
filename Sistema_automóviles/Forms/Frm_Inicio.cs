@@ -14,7 +14,8 @@ namespace Sistema_automóviles.Forms
 {
     public partial class Frm_Inicio : Form
     {
-        const byte XYinicial = 24;
+        const byte Xinicial = 24;
+        const byte Yinicial = 60;
         const byte separacion = 15;
         ushort conteoPanelesEnlinea = 0;
         ushort conteoFilasPaneles = 0;
@@ -29,17 +30,8 @@ namespace Sistema_automóviles.Forms
         private void ShowAutos()
         {
             string? path = db.GetDirectoryImg();
-            //PictureBox pictureBox = new PictureBox();
-            //pictureBox.Name = "Agregar";
-            //pictureBox.Width = anchoPanel;
-            //pictureBox.Height = altoPanel;
-            //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            //pictureBox.Location = new Point(XYinicial,XYinicial);
-            //db.SetImage(pictureBox,-1,path);
-            //Contenedor.Controls.Add(pictureBox);
-            //conteoPanelesEnlinea++;
-            IEnumerable<Auto> autos = db.GetAllAutos().Take(11).ToList();
-            foreach(Auto auto in autos)
+            IEnumerable<Auto> autos = db.GetAllAutos().ToList();
+            foreach (Auto auto in autos)
             {
                 //Crear panel
                 Panel panel = new Panel();
@@ -47,24 +39,61 @@ namespace Sistema_automóviles.Forms
                 panel.Width = anchoPanel;
                 panel.Height = altoPanel;
                 panel.BorderStyle = BorderStyle.Fixed3D;
-                panel.BackColor = Color.Cyan;
-                Point punto = new Point(XYinicial + (conteoPanelesEnlinea * (separacion + anchoPanel)),
-                    XYinicial + (conteoFilasPaneles * (separacion + altoPanel)));
+                Point punto = new Point(Xinicial + (conteoPanelesEnlinea * (separacion + anchoPanel)),
+                    Yinicial + (conteoFilasPaneles * (separacion + altoPanel)));
                 panel.Location = punto;
-                //Contenido panel
+                ///////////Contenido panel
                 //Imagen
                 PictureBox picbox = new PictureBox();
-                picbox.Name = "Pb_"+auto.ID_auto.ToString();
+                picbox.Name = "Imagen_" + auto.ID_auto.ToString();
                 picbox.Location = new Point(14, 14);
                 picbox.Width = 266;
                 picbox.Height = 202;
                 picbox.SizeMode = PictureBoxSizeMode.StretchImage;
-                db.SetImage(picbox,auto.ID_auto, path);
+                db.SetImage(picbox, auto.ID_auto, path);
                 panel.Controls.Add(picbox);
-                //Informacion
+                //////Informacion
+                //Marca
                 Label marca = new Label();
+                marca.Name = "Marca_" + auto.ID_auto.ToString();
                 marca.Text = auto.Marca;
-                
+                marca.Size = new Size(52, 20);
+                marca.Location = new Point(27, 231);
+                marca.AutoSize = true;
+                panel.Controls.Add(marca);
+                //Modelo
+                Label modelo = new Label();
+                modelo.Name = "Modelo_" + auto.ID_auto.ToString();
+                modelo.Text = auto.Modelo;
+                modelo.Size = new Size(52, 20);
+                modelo.Location = new Point(27, 272);
+                modelo.AutoSize = true;
+                panel.Controls.Add(modelo);
+                //Existencia
+                Label existencia = new Label();
+                existencia.Name = "Existencia_" + auto.ID_auto.ToString();
+                existencia.Text = auto.Existencia.ToString();
+                existencia.Size = new Size(25, 20);
+                existencia.Location = new Point(128, 251);
+                existencia.AutoSize = true;
+                panel.Controls.Add(existencia);
+                //Año
+                Label año = new Label();
+                año.Name = "Año_" + auto.ID_auto.ToString();
+                año.Text = auto.Año.ToString();
+                año.Size = new Size(41, 20);
+                año.Location = new Point(202, 231);
+                año.AutoSize = true;
+                panel.Controls.Add(año);
+                //Precio
+                Label precio = new Label();
+                precio.Name = "Precio_" + auto.ID_auto.ToString();
+                precio.Text = auto.Precio.ToString("$" + "#,##0.00");
+                precio.Size = new Size(87, 20);
+                precio.Location = new Point(179, 272);
+                precio.AutoSize = true;
+                panel.Controls.Add(precio);
+                //
                 Contenedor.Controls.Add(panel);
                 //Condiciones
                 conteoPanelesEnlinea++;
@@ -73,6 +102,7 @@ namespace Sistema_automóviles.Forms
                     conteoPanelesEnlinea = 0;
                     conteoFilasPaneles++;
                 }
+
             }
         }
 
@@ -82,6 +112,11 @@ namespace Sistema_automóviles.Forms
         }
 
         private void Frm_Inicio_Shown(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TxtBusqueda_TextChanged(object sender, EventArgs e)
         {
         }
     }

@@ -13,6 +13,7 @@ namespace Sistema_automóviles.Models.Models
     {
         MySqlCommand? _command;
         MySqlDataReader? _reader;
+        MySqlDataAdapter? _adapter;
         public string? GetDirectoryImg()
         {
             string? path = AppDomain.CurrentDomain.BaseDirectory;
@@ -34,12 +35,12 @@ namespace Sistema_automóviles.Models.Models
                 {
                     var auto = new Auto();
                     auto.ID_auto = _reader.GetInt32(0);
-                    auto.ID_proveedor = _reader.GetInt32(1);
-                    auto.Marca = _reader.GetString(2);
-                    auto.Modelo = _reader.GetString(3);
-                    auto.Año = _reader.GetInt32(4);
-                    auto.Precio = _reader.GetFloat(5);
-                    auto.Existencia = _reader.GetInt32(6);
+                    auto.Marca = _reader.GetString(1);
+                    auto.Modelo = _reader.GetString(2);
+                    auto.Año = _reader.GetInt32(3);
+                    auto.Existencia = _reader.GetInt32(4);
+                    auto.Costo = _reader.GetFloat(5);
+                    auto.Precio = _reader.GetFloat(6);
                     carros.Add(auto);
                 }
                 Close();
