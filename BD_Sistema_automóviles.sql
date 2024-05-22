@@ -37,7 +37,7 @@ CREATE TABLE Proveedores
 
 CREATE TABLE Ventas
 (
-	ID_venta INT PRIMARY KEY AUTO_INCREMENT,
+	ID_venta INT AUTO_INCREMENT,
     ID_auto INT NOT NULL,
     ID_cliente INT NOT NULL,
     Descripcion VARCHAR(200) NOT NULL,
@@ -45,6 +45,7 @@ CREATE TABLE Ventas
     Numero_autos SMALLINT NOT NULL,
     Precio FLOAT NOT NULL,
     Total FLOAT NOT  NULL,
+    PRIMARY KEY (ID_venta, Fecha),
     CONSTRAINT fk_auto FOREIGN KEY(ID_auto) REFERENCES Autos(ID_auto),
     CONSTRAINT fk_cliente FOREIGN KEY(ID_cliente) REFERENCES Clientes(ID_cliente)
 );

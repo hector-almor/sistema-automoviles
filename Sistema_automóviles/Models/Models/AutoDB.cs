@@ -28,22 +28,29 @@ namespace Sistema_automóviles.Models.Models
             var carros = new List<Auto>();
             using (_connection)
             {
-                Connect();
-                _command = new MySqlCommand("SELECT * FROM autos", _connection);
-                _reader = _command.ExecuteReader();
-                while (_reader.Read())
+                try
                 {
-                    var auto = new Auto();
-                    auto.ID_auto = _reader.GetInt32(0);
-                    auto.Marca = _reader.GetString(1);
-                    auto.Modelo = _reader.GetString(2);
-                    auto.Año = _reader.GetInt32(3);
-                    auto.Existencia = _reader.GetInt32(4);
-                    auto.Costo = _reader.GetFloat(5);
-                    auto.Precio = _reader.GetFloat(6);
-                    carros.Add(auto);
+                    Connect();
+                    _command = new MySqlCommand("SELECT * FROM autos", _connection);
+                    _reader = _command.ExecuteReader();
+                    while (_reader.Read())
+                    {
+                        var auto = new Auto();
+                        auto.ID_auto = _reader.GetInt32(0);
+                        auto.Marca = _reader.GetString(1);
+                        auto.Modelo = _reader.GetString(2);
+                        auto.Año = _reader.GetInt32(3);
+                        auto.Existencia = _reader.GetInt32(4);
+                        auto.Costo = _reader.GetFloat(5);
+                        auto.Precio = _reader.GetFloat(6);
+                        carros.Add(auto);
+                    }
+                    Close();
                 }
-                Close();
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             return carros;
         }

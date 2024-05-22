@@ -54,12 +54,10 @@
             // 
             // TxtBusqueda
             // 
-            TxtBusqueda.Enabled = false;
             TxtBusqueda.Location = new Point(520, 27);
             TxtBusqueda.Name = "TxtBusqueda";
             TxtBusqueda.Size = new Size(179, 27);
             TxtBusqueda.TabIndex = 0;
-            TxtBusqueda.Visible = false;
             TxtBusqueda.TextChanged += TxtBusqueda_TextChanged;
             // 
             // Pnl_prueba

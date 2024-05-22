@@ -22,15 +22,38 @@ namespace Sistema_automóviles.Forms
         const ushort anchoPanel = 292;
         const ushort altoPanel = 400;
         readonly AutoDB db = new AutoDB();
+        Dictionary<Panel, string[]> kvpaneles = new Dictionary<Panel, string[]>();
         public Frm_Inicio()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
         }
-        private void ShowAutos()
+        private void OrdenarPaneles(Predicate<KeyValuePair<Panel, string[]>> condicion)
+        {
+            conteoFilasPaneles = 0;
+            conteoPanelesEnlinea = 0;
+            foreach (var kvp in kvpaneles)
+            {
+                if (condicion(kvp))
+                {
+                    kvp.Key.Visible = true;
+                    kvp.Key.Location = new Point(Xinicial + (conteoPanelesEnlinea * (separacion + anchoPanel)),
+                            Yinicial + (conteoFilasPaneles * (separacion + altoPanel)));
+                    conteoPanelesEnlinea++;
+                    if (conteoPanelesEnlinea >= 5)
+                    {
+                        conteoPanelesEnlinea = 0;
+                        conteoFilasPaneles++;
+                    }
+                }
+                else
+                    kvp.Key.Visible = false;
+            }
+        }
+        private void FirstShowAutos()
         {
             string? path = db.GetDirectoryImg();
-            IEnumerable<Auto> autos = db.GetAllAutos().ToList();
+            IEnumerable<Auto> autos = db.GetAllAutos().ToList().OrderBy(c=>c.Marca);
             foreach (Auto auto in autos)
             {
                 //Crear panel
@@ -93,7 +116,12 @@ namespace Sistema_automóviles.Forms
                 precio.Location = new Point(179, 272);
                 precio.AutoSize = true;
                 panel.Controls.Add(precio);
+                //Convertir propiedades a array de string
+                string[] array = {auto.Marca.Trim().ToLower(),
+                    auto.Modelo.Trim().ToLower(),
+                    auto.Año.ToString().Trim().ToLower()}; 
                 //
+                kvpaneles.Add(panel,array);
                 Contenedor.Controls.Add(panel);
                 //Condiciones
                 conteoPanelesEnlinea++;
@@ -108,7 +136,7 @@ namespace Sistema_automóviles.Forms
 
         private void Frm_Inicio_Load(object sender, EventArgs e)
         {
-            ShowAutos();
+            FirstShowAutos();
         }
 
         private void Frm_Inicio_Shown(object sender, EventArgs e)
@@ -118,6 +146,26 @@ namespace Sistema_automóviles.Forms
 
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
         {
+            TextBox textBox = (TextBox)sender;
+            string busqueda = textBox.Text.Trim().ToLower();
+            if (busqueda == string.Empty)
+            {
+                Predicate<KeyValuePair<Panel, string[]>> func = (kvp) => true;
+                OrdenarPaneles(func);
+            }
+            else
+            {
+                Predicate<KeyValuePair<Panel, string[]>> func = (kvp) =>
+                {
+                    foreach (string str in kvp.Value)
+                    {
+                        if (str.StartsWith(textBox.Text.Trim().ToLower()))
+                            return true;
+                    }
+                    return false;
+                };
+                OrdenarPaneles(func);
+            }
         }
     }
 }
