@@ -15,7 +15,7 @@ namespace Sistema_automóviles.Forms
     public partial class Frm_Inicio : Form
     {
         const byte Xinicial = 24;
-        const byte Yinicial = 60;
+        const byte Yinicial = 10;
         const byte separacion = 15;
         ushort conteoPanelesEnlinea = 0;
         ushort conteoFilasPaneles = 0;
@@ -53,12 +53,12 @@ namespace Sistema_automóviles.Forms
         private void FirstShowAutos()
         {
             string? path = db.GetDirectoryImg();
-            IEnumerable<Auto> autos = db.GetAllAutos().ToList().OrderBy(c=>c.Marca);
+            IEnumerable<Auto> autos = db.GetAllAutos().ToList().OrderBy(c => c.Marca);
             foreach (Auto auto in autos)
             {
                 //Crear panel
                 Panel panel = new Panel();
-                panel.Name = "Pnl_" + auto.ID_auto.ToString();
+                panel.Name = "Panel_" + auto.ID_auto.ToString();
                 panel.Width = anchoPanel;
                 panel.Height = altoPanel;
                 panel.BorderStyle = BorderStyle.Fixed3D;
@@ -116,12 +116,28 @@ namespace Sistema_automóviles.Forms
                 precio.Location = new Point(179, 272);
                 precio.AutoSize = true;
                 panel.Controls.Add(precio);
+                //Botón actualizar
+                Button btnActu = new Button();
+                btnActu.Name = "Actualizar_" + auto.ID_auto.ToString();
+                btnActu.Text = "Actualizar";
+                btnActu.Size = new Size(94, 29);
+                btnActu.Location = new Point(40, 312);
+                btnActu.Click += Btn_actualizar_auto;
+                panel.Controls.Add(btnActu);
+                //Botón eliminar
+                Button btnEli = new Button();
+                btnEli.Name = "Eliminar_" + auto.ID_auto.ToString();
+                btnEli.Text = "Eliminar";
+                btnEli.Size = new Size(94, 29);
+                btnEli.Location = new Point(172, 312);
+                btnEli.Click += Btn_eliminar_auto;
+                panel.Controls.Add(btnEli);
                 //Convertir propiedades a array de string
                 string[] array = {auto.Marca.Trim().ToLower(),
                     auto.Modelo.Trim().ToLower(),
-                    auto.Año.ToString().Trim().ToLower()}; 
+                    auto.Año.ToString().Trim().ToLower()};
                 //
-                kvpaneles.Add(panel,array);
+                kvpaneles.Add(panel, array);
                 Contenedor.Controls.Add(panel);
                 //Condiciones
                 conteoPanelesEnlinea++;
@@ -141,7 +157,7 @@ namespace Sistema_automóviles.Forms
 
         private void Frm_Inicio_Shown(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TxtBusqueda_TextChanged(object sender, EventArgs e)
@@ -150,12 +166,11 @@ namespace Sistema_automóviles.Forms
             string busqueda = textBox.Text.Trim().ToLower();
             if (busqueda == string.Empty)
             {
-                Predicate<KeyValuePair<Panel, string[]>> func = (kvp) => true;
-                OrdenarPaneles(func);
+                OrdenarPaneles((kvp)=>true);
             }
             else
             {
-                Predicate<KeyValuePair<Panel, string[]>> func = (kvp) =>
+                OrdenarPaneles(kvp =>
                 {
                     foreach (string str in kvp.Value)
                     {
@@ -163,8 +178,32 @@ namespace Sistema_automóviles.Forms
                             return true;
                     }
                     return false;
-                };
-                OrdenarPaneles(func);
+                });
+            }
+        }
+        private void Btn_actualizar_auto(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            int index = btn.Name.IndexOf("_");
+            var auto = db.GetAutoByID(Convert.ToInt32(btn.Name.Substring(index+1)));
+            Frm_detalles_auto frm_detalles = new Frm_detalles_auto(auto);
+            frm_detalles.ShowDialog();
+        }
+
+        private void Btn_eliminar_auto(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que quieres eliminar el auto?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                Button btn = (Button)sender;
+                int index = btn.Name.IndexOf("_");
+                bool resultado = db.DeleteAuto(Convert.ToInt32(btn.Name.Substring(index+1)));
+                if (resultado)
+                {
+                    Contenedor.Controls.Remove(btn.Parent);
+                    kvpaneles.Remove((Panel)btn.Parent);
+                    TxtBusqueda_TextChanged(TxtBusqueda,new EventArgs());
+                }
             }
         }
     }

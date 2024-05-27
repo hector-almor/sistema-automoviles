@@ -1,6 +1,6 @@
 ﻿namespace Sistema_automóviles.Forms
 {
-    partial class Frm_agregar
+    partial class Frm_detalles_auto
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@
             Titulo = new Label();
             TxtMarca = new TextBox();
             TxtModelo = new TextBox();
-            TxtAño = new MaskedTextBox();
             TxtID = new TextBox();
-            TxtExistencia = new MaskedTextBox();
+            TxtAño = new TextBox();
+            TxtExistencia = new TextBox();
             SuspendLayout();
             // 
             // Titulo
@@ -41,9 +41,9 @@
             Titulo.AutoSize = true;
             Titulo.Location = new Point(317, 19);
             Titulo.Name = "Titulo";
-            Titulo.Size = new Size(87, 20);
+            Titulo.Size = new Size(97, 20);
             Titulo.TabIndex = 0;
-            Titulo.Text = "Añadir auto";
+            Titulo.Text = "Detalles auto";
             // 
             // TxtMarca
             // 
@@ -61,16 +61,6 @@
             TxtModelo.TabIndex = 3;
             TxtModelo.TextAlign = HorizontalAlignment.Center;
             // 
-            // TxtAño
-            // 
-            TxtAño.Location = new Point(137, 252);
-            TxtAño.Mask = "9999";
-            TxtAño.Name = "TxtAño";
-            TxtAño.Size = new Size(186, 27);
-            TxtAño.TabIndex = 4;
-            TxtAño.TextAlign = HorizontalAlignment.Center;
-            TxtAño.ValidatingType = typeof(int);
-            // 
             // TxtID
             // 
             TxtID.Location = new Point(137, 83);
@@ -79,29 +69,37 @@
             TxtID.TabIndex = 1;
             TxtID.TextAlign = HorizontalAlignment.Center;
             // 
+            // TxtAño
+            // 
+            TxtAño.Location = new Point(137, 248);
+            TxtAño.Name = "TxtAño";
+            TxtAño.Size = new Size(186, 27);
+            TxtAño.TabIndex = 4;
+            TxtAño.TextAlign = HorizontalAlignment.Center;
+            TxtAño.TextChanged += ValidarNumeros;
+            // 
             // TxtExistencia
             // 
-            TxtExistencia.Location = new Point(137, 317);
-            TxtExistencia.Mask = "99999";
+            TxtExistencia.Location = new Point(137, 308);
             TxtExistencia.Name = "TxtExistencia";
             TxtExistencia.Size = new Size(186, 27);
             TxtExistencia.TabIndex = 5;
             TxtExistencia.TextAlign = HorizontalAlignment.Center;
-            TxtExistencia.ValidatingType = typeof(int);
+            TxtExistencia.TextChanged += ValidarNumeros;
             // 
-            // Frm_agregar
+            // Frm_detalles_auto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 520);
             Controls.Add(TxtExistencia);
-            Controls.Add(TxtID);
             Controls.Add(TxtAño);
+            Controls.Add(TxtID);
             Controls.Add(TxtModelo);
             Controls.Add(TxtMarca);
             Controls.Add(Titulo);
-            Name = "Frm_agregar";
-            Text = "Frm_agregar";
+            Name = "Frm_detalles_auto";
+            Load += Frm_detalles_auto_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,8 +109,8 @@
         private Label Titulo;
         private TextBox TxtMarca;
         private TextBox TxtModelo;
-        private MaskedTextBox TxtAño;
         private TextBox TxtID;
-        private MaskedTextBox TxtExistencia;
+        private TextBox TxtAño;
+        private TextBox TxtExistencia;
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_automóviles.Models.Classes
 {
-    internal class Auto
+    public class Auto
     {
         public int? ID_auto { get; set; }
         public string? Marca {  get; set; }

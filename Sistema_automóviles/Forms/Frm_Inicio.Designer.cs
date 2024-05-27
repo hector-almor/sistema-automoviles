@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             Contenedor = new Panel();
-            TxtBusqueda = new TextBox();
             Pnl_prueba = new Panel();
+            Btn_actualizar = new Button();
+            Btn_eliminar = new Button();
             Existencia = new Label();
             Precio = new Label();
             Año = new Label();
             Modelo_prueba = new Label();
             Marca_prueba = new Label();
             Pb_prueba = new PictureBox();
+            TxtBusqueda = new TextBox();
             Contenedor.SuspendLayout();
             Pnl_prueba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Pb_prueba).BeginInit();
@@ -45,24 +47,17 @@
             // Contenedor
             // 
             Contenedor.AutoScroll = true;
-            Contenedor.Controls.Add(TxtBusqueda);
             Contenedor.Controls.Add(Pnl_prueba);
-            Contenedor.Location = new Point(12, 12);
+            Contenedor.Location = new Point(12, 56);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(1900, 970);
+            Contenedor.Size = new Size(1900, 926);
             Contenedor.TabIndex = 0;
-            // 
-            // TxtBusqueda
-            // 
-            TxtBusqueda.Location = new Point(520, 27);
-            TxtBusqueda.Name = "TxtBusqueda";
-            TxtBusqueda.Size = new Size(179, 27);
-            TxtBusqueda.TabIndex = 0;
-            TxtBusqueda.TextChanged += TxtBusqueda_TextChanged;
             // 
             // Pnl_prueba
             // 
             Pnl_prueba.BackColor = Color.Red;
+            Pnl_prueba.Controls.Add(Btn_actualizar);
+            Pnl_prueba.Controls.Add(Btn_eliminar);
             Pnl_prueba.Controls.Add(Existencia);
             Pnl_prueba.Controls.Add(Precio);
             Pnl_prueba.Controls.Add(Año);
@@ -74,6 +69,24 @@
             Pnl_prueba.Size = new Size(292, 356);
             Pnl_prueba.TabIndex = 0;
             Pnl_prueba.Visible = false;
+            // 
+            // Btn_actualizar
+            // 
+            Btn_actualizar.Location = new Point(40, 312);
+            Btn_actualizar.Name = "Btn_actualizar";
+            Btn_actualizar.Size = new Size(94, 29);
+            Btn_actualizar.TabIndex = 2;
+            Btn_actualizar.Text = "Actualizar";
+            Btn_actualizar.UseVisualStyleBackColor = true;
+            // 
+            // Btn_eliminar
+            // 
+            Btn_eliminar.Location = new Point(172, 312);
+            Btn_eliminar.Name = "Btn_eliminar";
+            Btn_eliminar.Size = new Size(94, 29);
+            Btn_eliminar.TabIndex = 1;
+            Btn_eliminar.Text = "Eliminar";
+            Btn_eliminar.UseVisualStyleBackColor = true;
             // 
             // Existencia
             // 
@@ -129,22 +142,30 @@
             Pb_prueba.TabIndex = 0;
             Pb_prueba.TabStop = false;
             // 
+            // TxtBusqueda
+            // 
+            TxtBusqueda.Location = new Point(595, 12);
+            TxtBusqueda.Name = "TxtBusqueda";
+            TxtBusqueda.Size = new Size(179, 27);
+            TxtBusqueda.TabIndex = 0;
+            TxtBusqueda.TextChanged += TxtBusqueda_TextChanged;
+            // 
             // Frm_Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 994);
+            Controls.Add(TxtBusqueda);
             Controls.Add(Contenedor);
             Name = "Frm_Inicio";
-            Text = "Frm_Inicio";
             Load += Frm_Inicio_Load;
             Shown += Frm_Inicio_Shown;
             Contenedor.ResumeLayout(false);
-            Contenedor.PerformLayout();
             Pnl_prueba.ResumeLayout(false);
             Pnl_prueba.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Pb_prueba).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -158,5 +179,7 @@
         private Label Precio;
         private Label Existencia;
         private TextBox TxtBusqueda;
+        private Button Btn_eliminar;
+        private Button Btn_actualizar;
     }
 }

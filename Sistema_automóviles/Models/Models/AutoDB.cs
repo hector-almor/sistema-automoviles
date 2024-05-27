@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sistema_automóviles.Models.Classes;
+using ZstdSharp.Unsafe;
 
 namespace Sistema_automóviles.Models.Models
 {
@@ -65,6 +66,64 @@ namespace Sistema_automóviles.Models.Models
                     pictureBox.Image = Image.FromFile(fullpath + extension);
                 }
             }
+        }
+        public bool DeleteAuto(int id)
+        {
+            bool result = false;
+            try
+            {
+                using (_connection)
+                {
+                    Connect();
+                    _command = new MySqlCommand("DELETE FROM proveedores WHERE ID_auto=@IDA;" +
+                        "DELETE FROM ventas WHERE ID_auto=@IDA;" + "DELETE FROM autos WHERE ID_auto=@IDA;", _connection);
+                    _command.Parameters.AddWithValue("@IDA", id);
+                    int rows = _command.ExecuteNonQuery();
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("El auto ha sido eliminado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        result = true;
+                    }
+                    else
+                        MessageBox.Show("¡Oops!, ha ocurrido un error, intente de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return result;
+        }
+        public Auto GetAutoByID(int id)
+        {
+            var auto = new Auto();
+            try
+            {
+                using(_connection)
+                {
+                    Connect();
+                    _command = new MySqlCommand("SELECT * FROM autos WHERE ID_auto = @IDA",_connection);
+                    _command.Parameters.AddWithValue("@IDA",id);
+                    _reader = _command.ExecuteReader();
+                    while(_reader.Read())
+                    {
+                        auto.ID_auto = _reader.GetInt32(0);
+                        auto.Marca = _reader.GetString(1);
+                        auto.Modelo = _reader.GetString(2);
+                        auto.Año = _reader.GetInt32(3);
+                        auto.Existencia = _reader.GetInt32(4);
+                        auto.Costo = _reader.GetFloat(5);
+                        auto.Precio = _reader.GetFloat(6);
+                    }
+                    Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return auto;
         }
     }
 }
