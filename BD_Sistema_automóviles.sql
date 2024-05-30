@@ -67,8 +67,8 @@ INSERT INTO Autos (ID_auto, Marca, Modelo, Año, Existencia, Costo, Precio) VALU
 (14, 'Hyundai', 'Sonata', 2023, 18, 226800.00, 270000.00),
 (15, 'Kia', 'Forte', 2024, 10, 193200.00, 230000.00),
 (16, 'Kia', 'Optima', 2023, 8, 235200.00, 280000.00),
-(17, 'Mazda', '3', 2024, 15, 210000.00, 250000.00),
-(18, 'Mazda', '6', 2023, 12, 252000.00, 300000.00),
+(17, 'Mazda', 'CX-9', 2024, 15, 210000.00, 250000.00),
+(18, 'Mazda', 'CX-3', 2023, 12, 252000.00, 300000.00),
 (19, 'Subaru', 'Impreza', 2024, 10, 218400.00, 260000.00),
 (20, 'Subaru', 'Legacy', 2023, 8, 260400.00, 310000.00);
 
@@ -117,6 +117,28 @@ INSERT INTO Clientes (ID_cliente, Nombre, APaterno, AMaterno, Correo, Telefono, 
 (20, 'Susana', 'Vázquez', 'Maldonado', 'susana.vazquez@gmail.com', 5503456789, 'TUV6273849G8', 02200);
 
 INSERT INTO Ventas (ID_auto, ID_cliente, Descripcion, Fecha, Numero_autos, Precio, Total) VALUES
+(6, 4, 'Venta a Ana Rodríguez Hernández - Método de pago: Tarjeta de crédito', '2024-01-05 10:30:00', 1, 250000.00, 290000.00),
+(2, 1, 'Venta a Juan Pérez López - Método de pago: Transferencia bancaria', '2024-01-15 11:00:00', 1, 300000.00, 348000.00),
+(3, 2, 'Venta a María González Ramírez - Método de pago: Efectivo', '2024-01-20 15:45:00', 1, 270000.00, 313200.00),
+(4, 3, 'Venta a Pedro Martínez García - Método de pago: Tarjeta de crédito', '2024-01-25 16:30:00', 1, 320000.00, 371200.00),
+(5, 5, 'Venta a José López Morales - Método de pago: Transferencia bancaria', '2024-02-05 10:00:00', 1, 230000.00, 266800.00),
+(1, 6, 'Venta a Patricia Gómez Gutiérrez - Método de pago: Efectivo', '2024-02-10 14:15:00', 1, 280000.00, 324800.00),
+(7, 7, 'Venta a Francisco Ruiz Romero - Método de pago: Tarjeta de crédito', '2024-02-15 13:30:00', 1, 500000.00, 580000.00),
+(8, 8, 'Venta a Laura Díaz Guerrero - Método de pago: Transferencia bancaria', '2024-02-20 12:45:00', 1, 400000.00, 464000.00),
+(9, 9, 'Venta a Roberto Moreno Torres - Método de pago: Efectivo', '2024-03-05 11:00:00', 1, 260000.00, 301600.00),
+(10, 10, 'Venta a Carmen Mendoza Peña - Método de pago: Tarjeta de crédito', '2024-03-10 15:15:00', 1, 310000.00, 359600.00),
+(11, 11, 'Venta a Ricardo Rojas Alvarez - Método de pago: Transferencia bancaria', '2024-03-15 14:30:00', 1, 240000.00, 278400.00),
+(12, 12, 'Venta a Isabel Vargas Herrera - Método de pago: Efectivo', '2024-03-20 13:45:00', 1, 290000.00, 336400.00),
+(13, 13, 'Venta a Alejandro Castillo Reyes - Método de pago: Tarjeta de crédito', '2024-04-05 12:00:00', 1, 220000.00, 255200.00),
+(14, 14, 'Venta a Sofía Cortés Jiménez- Método de pago: Transferencia bancaria', '2024-04-10 16:15:00', 1, 270000.00, 313200.00),
+(15, 15, 'Venta a Carlos Santos Silva - Método de pago: Efectivo', '2024-04-15 15:30:00', 1, 230000.00, 266800.00),
+(16, 16, 'Venta a Gabriela Aguilar Delgado - Método de pago: Tarjeta de crédito', '2024-04-20 14:45:00', 1, 280000.00, 324800.00),
+(17, 17, 'Venta a Miguel Romero Paredes - Método de pago: Transferencia bancaria', '2024-05-05 13:00:00', 1, 250000.00, 290000.00),
+(18, 18, 'Venta a Teresa Guerra Méndez - Método de pago: Efectivo', '2024-05-10 17:15:00', 1, 300000.00, 348000.00),
+(19, 19, 'Venta a Javier Campos Ruíz - Método de pago: Tarjeta de crédito', '2024-05-15 16:30:00', 1, 260000.00, 301600.00),
+(20, 20, 'Venta a Susana Vázquez Maldonado - Método de pago: Transferencia bancaria', '2024-05-20 15:45:00', 1, 310000.00, 359600.00);
+
+/*INSERT INTO Ventas (ID_auto, ID_cliente, Descripcion, Fecha, Numero_autos, Precio, Total) VALUES
 (6, 4, '', '2024-01-05 10:30:00', 1, 250000.00, 290000.00),
 (2, 1, '', '2024-01-15 11:00:00', 1, 300000.00, 348000.00),
 (3, 2, '', '2024-01-20 15:45:00', 1, 270000.00, 313200.00),
@@ -136,4 +158,4 @@ INSERT INTO Ventas (ID_auto, ID_cliente, Descripcion, Fecha, Numero_autos, Preci
 (17, 17, '', '2024-05-05 13:00:00', 1, 250000.00, 290000.00),
 (18, 18, '', '2024-05-10 17:15:00', 1, 300000.00, 348000.00),
 (19, 19, '', '2024-05-15 16:30:00', 1, 260000.00, 301600.00),
-(20, 20, '', '2024-05-20 15:45:00', 1, 310000.00, 359600.00);
+(20, 20, '', '2024-05-20 15:45:00', 1, 310000.00, 359600.00);*/

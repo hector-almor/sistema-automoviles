@@ -30,6 +30,7 @@
         {
             Contenedor = new Panel();
             Pnl_prueba = new Panel();
+            button1 = new Button();
             Btn_actualizar = new Button();
             Btn_eliminar = new Button();
             Existencia = new Label();
@@ -39,6 +40,9 @@
             Marca_prueba = new Label();
             Pb_prueba = new PictureBox();
             TxtBusqueda = new TextBox();
+            LblTitulo = new Label();
+            Agregar = new FontAwesome.Sharp.IconButton();
+            BtnVentas = new FontAwesome.Sharp.IconButton();
             Contenedor.SuspendLayout();
             Pnl_prueba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Pb_prueba).BeginInit();
@@ -48,14 +52,15 @@
             // 
             Contenedor.AutoScroll = true;
             Contenedor.Controls.Add(Pnl_prueba);
-            Contenedor.Location = new Point(12, 56);
+            Contenedor.Location = new Point(12, 115);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(1900, 926);
+            Contenedor.Size = new Size(1873, 867);
             Contenedor.TabIndex = 0;
             // 
             // Pnl_prueba
             // 
             Pnl_prueba.BackColor = Color.Red;
+            Pnl_prueba.Controls.Add(button1);
             Pnl_prueba.Controls.Add(Btn_actualizar);
             Pnl_prueba.Controls.Add(Btn_eliminar);
             Pnl_prueba.Controls.Add(Existencia);
@@ -70,20 +75,29 @@
             Pnl_prueba.TabIndex = 0;
             Pnl_prueba.Visible = false;
             // 
+            // button1
+            // 
+            button1.Location = new Point(199, 312);
+            button1.Name = "button1";
+            button1.Size = new Size(67, 29);
+            button1.TabIndex = 3;
+            button1.Text = "Eliminar";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Btn_actualizar
             // 
             Btn_actualizar.Location = new Point(40, 312);
             Btn_actualizar.Name = "Btn_actualizar";
-            Btn_actualizar.Size = new Size(94, 29);
+            Btn_actualizar.Size = new Size(60, 29);
             Btn_actualizar.TabIndex = 2;
             Btn_actualizar.Text = "Actualizar";
             Btn_actualizar.UseVisualStyleBackColor = true;
             // 
             // Btn_eliminar
             // 
-            Btn_eliminar.Location = new Point(172, 312);
+            Btn_eliminar.Location = new Point(114, 312);
             Btn_eliminar.Name = "Btn_eliminar";
-            Btn_eliminar.Size = new Size(94, 29);
+            Btn_eliminar.Size = new Size(67, 29);
             Btn_eliminar.TabIndex = 1;
             Btn_eliminar.Text = "Eliminar";
             Btn_eliminar.UseVisualStyleBackColor = true;
@@ -144,22 +158,67 @@
             // 
             // TxtBusqueda
             // 
-            TxtBusqueda.Location = new Point(595, 12);
+            TxtBusqueda.Location = new Point(845, 66);
             TxtBusqueda.Name = "TxtBusqueda";
             TxtBusqueda.Size = new Size(179, 27);
             TxtBusqueda.TabIndex = 0;
             TxtBusqueda.TextChanged += TxtBusqueda_TextChanged;
+            // 
+            // LblTitulo
+            // 
+            LblTitulo.AutoSize = true;
+            LblTitulo.Font = new Font("Impact", 22F);
+            LblTitulo.ForeColor = Color.FromArgb(42, 44, 65);
+            LblTitulo.Location = new Point(782, 9);
+            LblTitulo.Name = "LblTitulo";
+            LblTitulo.Size = new Size(309, 45);
+            LblTitulo.TabIndex = 2;
+            LblTitulo.Text = "CATÁLOGO DE AUTOS";
+            // 
+            // Agregar
+            // 
+            Agregar.AutoSize = true;
+            Agregar.BackColor = Color.DodgerBlue;
+            Agregar.FlatAppearance.BorderSize = 0;
+            Agregar.FlatStyle = FlatStyle.Flat;
+            Agregar.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            Agregar.IconColor = Color.Black;
+            Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            Agregar.Location = new Point(413, 35);
+            Agregar.Name = "Agregar";
+            Agregar.Size = new Size(58, 58);
+            Agregar.TabIndex = 2;
+            Agregar.UseVisualStyleBackColor = false;
+            Agregar.Click += Btn_actualizar_auto;
+            // 
+            // BtnVentas
+            // 
+            BtnVentas.AutoSize = true;
+            BtnVentas.BackColor = Color.Yellow;
+            BtnVentas.FlatAppearance.BorderSize = 0;
+            BtnVentas.FlatStyle = FlatStyle.Flat;
+            BtnVentas.IconChar = FontAwesome.Sharp.IconChar.Book;
+            BtnVentas.IconColor = Color.Black;
+            BtnVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BtnVentas.Location = new Point(553, 35);
+            BtnVentas.Name = "BtnVentas";
+            BtnVentas.Size = new Size(58, 58);
+            BtnVentas.TabIndex = 3;
+            BtnVentas.UseVisualStyleBackColor = false;
+            BtnVentas.Click += BtnVentas_Click;
             // 
             // Frm_Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 994);
+            Controls.Add(BtnVentas);
+            Controls.Add(Agregar);
+            Controls.Add(LblTitulo);
             Controls.Add(TxtBusqueda);
             Controls.Add(Contenedor);
             Name = "Frm_Inicio";
             Load += Frm_Inicio_Load;
-            Shown += Frm_Inicio_Shown;
             Contenedor.ResumeLayout(false);
             Pnl_prueba.ResumeLayout(false);
             Pnl_prueba.PerformLayout();
@@ -181,5 +240,9 @@
         private TextBox TxtBusqueda;
         private Button Btn_eliminar;
         private Button Btn_actualizar;
+        private Label LblTitulo;
+        private Button button1;
+        private FontAwesome.Sharp.IconButton Agregar;
+        private FontAwesome.Sharp.IconButton BtnVentas;
     }
 }

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "30nJPNxqUBZskeF0a/pSOaPjcV2+ZznYnJgcnE11qoJAtcse9Dik52OHQnMTzpxzbqTDU3Non9TEaVrP6/CiiA==",
+  "dgSpecHash": "cAhrfsgYNQc7e7OLVEq9hq7Bvk4GfsvtBUrIMDNnMv7sh4qCMUIGIvHdAkXxiZdEtIskWJOic4duj//fwdFdOQ==",
   "success": true,
   "projectFilePath": "D:\\Users\\Héctor\\Documents\\ProgramaciónH\\Sistema_automóviles\\Sistema_automóviles\\Sistema_automóviles.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Héctor\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
+    "C:\\Users\\Héctor\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
     "C:\\Users\\Héctor\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\Héctor\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",
     "C:\\Users\\Héctor\\.nuget\\packages\\k4os.compression.lz4.streams\\1.3.5\\k4os.compression.lz4.streams.1.3.5.nupkg.sha512",

@@ -4,7 +4,13 @@
     <Compile Update="Forms\Frm_detalles_auto.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Frm_hacer_venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Frm_Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Frm_ventas.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
