@@ -37,6 +37,7 @@ namespace Sistema_automóviles.Forms
             {
                 CmbCliente.Items.Add(cliente.Key);
             }
+            db.SetImageMemory(PicBox,oAuto.ID_auto,db.GetDirectoryImg());
         }
 
         private void NumAutos_ValueChanged(object sender, EventArgs e)
@@ -48,37 +49,37 @@ namespace Sistema_automóviles.Forms
         private void BtnVender_Click(object sender, EventArgs e)
         {
             ErrorP.Clear();
-            foreach(System.Windows.Forms.Control control in Controls)
+            foreach (System.Windows.Forms.Control control in Controls)
             {
-                if(control is System.Windows.Forms.TextBox && control.Text.Trim()==string.Empty)
+                if (control is System.Windows.Forms.TextBox && control.Text.Trim() == string.Empty)
                 {
                     ErrorP.SetError(control, "El campo no puede estar vacío");
                     return;
                 }
             }
-            if(CmbCliente.SelectedIndex==-1)
+            if (CmbCliente.SelectedIndex == -1)
             {
                 ErrorP.SetError(CmbCliente, "Selecciona un cliente");
                 return;
             }
-            if(!Frm_detalles_auto.IsNumeric(TxtTotal.Text.Trim()))
+            if (!Frm_detalles_auto.IsNumeric(TxtTotal.Text.Trim()))
             {
-                ErrorP.SetError(TxtTotal,"El valor debe ser numérico");
+                ErrorP.SetError(TxtTotal, "El valor debe ser numérico");
                 return;
             }
-            if (Convert.ToInt32(NumAutos.Value)==0)
+            if (Convert.ToInt32(NumAutos.Value) == 0)
             {
                 ErrorP.SetError(NumAutos, "Al menos selecciona un auto");
                 return;
             }
-            if(Convert.ToInt32(NumAutos.Value)>oAuto.Existencia)
+            if (Convert.ToInt32(NumAutos.Value) > oAuto.Existencia)
             {
                 ErrorP.SetError(NumAutos, "No hay suficientes autos en stock");
                 return;
             }
             //Hacer la venta
             DialogResult result = MessageBox.Show("¿Todos sus campos son correctos?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if(result== DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 var venta = new Venta();
                 venta.ID_auto = oAuto.ID_auto;
@@ -90,6 +91,11 @@ namespace Sistema_automóviles.Forms
                 venta.Total = float.Parse(TxtTotal.Text.Trim());
                 db.HacerVenta(venta);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

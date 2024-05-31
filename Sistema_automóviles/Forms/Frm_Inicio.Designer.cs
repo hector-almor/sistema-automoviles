@@ -43,18 +43,21 @@
             LblTitulo = new Label();
             Agregar = new FontAwesome.Sharp.IconButton();
             BtnVentas = new FontAwesome.Sharp.IconButton();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             Contenedor.SuspendLayout();
             Pnl_prueba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Pb_prueba).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // Contenedor
             // 
             Contenedor.AutoScroll = true;
             Contenedor.Controls.Add(Pnl_prueba);
-            Contenedor.Location = new Point(12, 115);
+            Contenedor.Location = new Point(15, 144);
+            Contenedor.Margin = new Padding(4);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(1873, 867);
+            Contenedor.Size = new Size(2341, 1084);
             Contenedor.TabIndex = 0;
             // 
             // Pnl_prueba
@@ -69,35 +72,39 @@
             Pnl_prueba.Controls.Add(Modelo_prueba);
             Pnl_prueba.Controls.Add(Marca_prueba);
             Pnl_prueba.Controls.Add(Pb_prueba);
-            Pnl_prueba.Location = new Point(34, 73);
+            Pnl_prueba.Location = new Point(42, 91);
+            Pnl_prueba.Margin = new Padding(4);
             Pnl_prueba.Name = "Pnl_prueba";
-            Pnl_prueba.Size = new Size(292, 356);
+            Pnl_prueba.Size = new Size(365, 445);
             Pnl_prueba.TabIndex = 0;
             Pnl_prueba.Visible = false;
             // 
             // button1
             // 
-            button1.Location = new Point(199, 312);
+            button1.Location = new Point(249, 390);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
-            button1.Size = new Size(67, 29);
+            button1.Size = new Size(84, 36);
             button1.TabIndex = 3;
             button1.Text = "Eliminar";
             button1.UseVisualStyleBackColor = true;
             // 
             // Btn_actualizar
             // 
-            Btn_actualizar.Location = new Point(40, 312);
+            Btn_actualizar.Location = new Point(50, 390);
+            Btn_actualizar.Margin = new Padding(4);
             Btn_actualizar.Name = "Btn_actualizar";
-            Btn_actualizar.Size = new Size(60, 29);
+            Btn_actualizar.Size = new Size(75, 36);
             Btn_actualizar.TabIndex = 2;
             Btn_actualizar.Text = "Actualizar";
             Btn_actualizar.UseVisualStyleBackColor = true;
             // 
             // Btn_eliminar
             // 
-            Btn_eliminar.Location = new Point(114, 312);
+            Btn_eliminar.Location = new Point(142, 390);
+            Btn_eliminar.Margin = new Padding(4);
             Btn_eliminar.Name = "Btn_eliminar";
-            Btn_eliminar.Size = new Size(67, 29);
+            Btn_eliminar.Size = new Size(84, 36);
             Btn_eliminar.TabIndex = 1;
             Btn_eliminar.Text = "Eliminar";
             Btn_eliminar.UseVisualStyleBackColor = true;
@@ -105,124 +112,156 @@
             // Existencia
             // 
             Existencia.AutoSize = true;
-            Existencia.Location = new Point(128, 251);
+            Existencia.Location = new Point(160, 314);
+            Existencia.Margin = new Padding(4, 0, 4, 0);
             Existencia.Name = "Existencia";
-            Existencia.Size = new Size(25, 20);
+            Existencia.Size = new Size(32, 25);
             Existencia.TabIndex = 0;
             Existencia.Text = "20";
             // 
             // Precio
             // 
             Precio.AutoSize = true;
-            Precio.Location = new Point(179, 272);
+            Precio.Location = new Point(224, 340);
+            Precio.Margin = new Padding(4, 0, 4, 0);
             Precio.Name = "Precio";
-            Precio.Size = new Size(87, 20);
+            Precio.Size = new Size(110, 25);
             Precio.TabIndex = 0;
             Precio.Text = "$200,000.00";
             // 
             // Año
             // 
             Año.AutoSize = true;
-            Año.Location = new Point(202, 231);
+            Año.Location = new Point(252, 289);
+            Año.Margin = new Padding(4, 0, 4, 0);
             Año.Name = "Año";
-            Año.Size = new Size(41, 20);
+            Año.Size = new Size(52, 25);
             Año.TabIndex = 0;
             Año.Text = "2010";
             // 
             // Modelo_prueba
             // 
             Modelo_prueba.AutoSize = true;
-            Modelo_prueba.Location = new Point(27, 272);
+            Modelo_prueba.Location = new Point(34, 340);
+            Modelo_prueba.Margin = new Padding(4, 0, 4, 0);
             Modelo_prueba.Name = "Modelo_prueba";
-            Modelo_prueba.Size = new Size(54, 20);
+            Modelo_prueba.Size = new Size(65, 25);
             Modelo_prueba.TabIndex = 0;
             Modelo_prueba.Text = "Mazda";
             // 
             // Marca_prueba
             // 
             Marca_prueba.AutoSize = true;
-            Marca_prueba.Location = new Point(27, 231);
+            Marca_prueba.Location = new Point(34, 289);
+            Marca_prueba.Margin = new Padding(4, 0, 4, 0);
             Marca_prueba.Name = "Marca_prueba";
-            Marca_prueba.Size = new Size(52, 20);
+            Marca_prueba.Size = new Size(64, 25);
             Marca_prueba.TabIndex = 0;
             Marca_prueba.Text = "Nissan";
             // 
             // Pb_prueba
             // 
-            Pb_prueba.Location = new Point(13, 14);
+            Pb_prueba.Location = new Point(16, 18);
+            Pb_prueba.Margin = new Padding(4);
             Pb_prueba.Name = "Pb_prueba";
-            Pb_prueba.Size = new Size(266, 202);
+            Pb_prueba.Size = new Size(332, 252);
             Pb_prueba.SizeMode = PictureBoxSizeMode.StretchImage;
             Pb_prueba.TabIndex = 0;
             Pb_prueba.TabStop = false;
             // 
             // TxtBusqueda
             // 
-            TxtBusqueda.Location = new Point(845, 66);
+            TxtBusqueda.Location = new Point(1056, 82);
+            TxtBusqueda.Margin = new Padding(4);
             TxtBusqueda.Name = "TxtBusqueda";
-            TxtBusqueda.Size = new Size(179, 27);
+            TxtBusqueda.Size = new Size(223, 31);
             TxtBusqueda.TabIndex = 0;
             TxtBusqueda.TextChanged += TxtBusqueda_TextChanged;
             // 
             // LblTitulo
             // 
             LblTitulo.AutoSize = true;
-            LblTitulo.Font = new Font("Impact", 22F);
+            LblTitulo.Font = new Font("Impact", 22F, FontStyle.Regular, GraphicsUnit.Point);
             LblTitulo.ForeColor = Color.FromArgb(42, 44, 65);
-            LblTitulo.Location = new Point(782, 9);
+            LblTitulo.Location = new Point(978, 11);
+            LblTitulo.Margin = new Padding(4, 0, 4, 0);
             LblTitulo.Name = "LblTitulo";
-            LblTitulo.Size = new Size(309, 45);
+            LblTitulo.Size = new Size(363, 54);
             LblTitulo.TabIndex = 2;
             LblTitulo.Text = "CATÁLOGO DE AUTOS";
             // 
             // Agregar
             // 
             Agregar.AutoSize = true;
-            Agregar.BackColor = Color.DodgerBlue;
+            Agregar.BackColor = Color.FromArgb(50, 1, 47);
             Agregar.FlatAppearance.BorderSize = 0;
             Agregar.FlatStyle = FlatStyle.Flat;
-            Agregar.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            Agregar.IconColor = Color.Black;
+            Agregar.IconChar = FontAwesome.Sharp.IconChar.Add;
+            Agregar.IconColor = Color.FromArgb(255, 95, 0);
             Agregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            Agregar.Location = new Point(413, 35);
+            Agregar.Location = new Point(211, 44);
+            Agregar.Margin = new Padding(4);
             Agregar.Name = "Agregar";
-            Agregar.Size = new Size(58, 58);
+            Agregar.Size = new Size(72, 72);
             Agregar.TabIndex = 2;
             Agregar.UseVisualStyleBackColor = false;
             Agregar.Click += Btn_actualizar_auto;
+            Agregar.MouseHover += Agregar_MouseHover;
             // 
             // BtnVentas
             // 
             BtnVentas.AutoSize = true;
-            BtnVentas.BackColor = Color.Yellow;
+            BtnVentas.BackColor = Color.FromArgb(50, 1, 47);
             BtnVentas.FlatAppearance.BorderSize = 0;
             BtnVentas.FlatStyle = FlatStyle.Flat;
+            BtnVentas.ForeColor = SystemColors.ActiveCaption;
             BtnVentas.IconChar = FontAwesome.Sharp.IconChar.Book;
-            BtnVentas.IconColor = Color.Black;
+            BtnVentas.IconColor = Color.FromArgb(255, 95, 0);
             BtnVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BtnVentas.Location = new Point(553, 35);
+            BtnVentas.Location = new Point(428, 44);
+            BtnVentas.Margin = new Padding(4);
             BtnVentas.Name = "BtnVentas";
-            BtnVentas.Size = new Size(58, 58);
+            BtnVentas.Size = new Size(72, 72);
             BtnVentas.TabIndex = 3;
             BtnVentas.UseVisualStyleBackColor = false;
             BtnVentas.Click += BtnVentas_Click;
+            BtnVentas.MouseHover += BtnVentas_MouseHover;
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.BackColor = SystemColors.Control;
+            iconPictureBox1.Cursor = Cursors.IBeam;
+            iconPictureBox1.ForeColor = Color.FromArgb(50, 1, 47);
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
+            iconPictureBox1.IconColor = Color.FromArgb(50, 1, 47);
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox1.IconSize = 34;
+            iconPictureBox1.Location = new Point(1001, 82);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(48, 34);
+            iconPictureBox1.TabIndex = 4;
+            iconPictureBox1.TabStop = false;
             // 
             // Frm_Inicio
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 994);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1924, 1050);
+            Controls.Add(iconPictureBox1);
             Controls.Add(BtnVentas);
             Controls.Add(Agregar);
             Controls.Add(LblTitulo);
             Controls.Add(TxtBusqueda);
             Controls.Add(Contenedor);
+            Margin = new Padding(4);
             Name = "Frm_Inicio";
             Load += Frm_Inicio_Load;
             Contenedor.ResumeLayout(false);
             Pnl_prueba.ResumeLayout(false);
             Pnl_prueba.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Pb_prueba).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,5 +283,6 @@
         private Button button1;
         private FontAwesome.Sharp.IconButton Agregar;
         private FontAwesome.Sharp.IconButton BtnVentas;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

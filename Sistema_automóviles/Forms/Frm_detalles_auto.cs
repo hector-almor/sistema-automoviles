@@ -138,7 +138,7 @@ namespace Sistema_automóviles.Forms
             }
         }
 
-        private void BtnAccion_Click(object sender, EventArgs e)
+        private void BtnAcción_Click(object sender, EventArgs e)
         {
             ErrorP.Clear();
             foreach (Control control in Controls)
@@ -218,5 +218,7 @@ namespace Sistema_automóviles.Forms
             PicBox.IconChar = IconChar.Image;
             PicBox.IconColor = Color.FromArgb(224, 224, 224);
         }
+
+        
     }
 }

@@ -24,10 +24,12 @@ namespace Sistema_automóviles.Forms
         const ushort altoPanel = 435;//400
         readonly AutoDB db = new AutoDB();
         Dictionary<Panel, string[]> kvpaneles = new Dictionary<Panel, string[]>();
+        private ToolTip toolTip1;
         public Frm_Inicio()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+            toolTip1 = new ToolTip();
         }
         private void PanelUpdate(Auto auto)
         {
@@ -167,11 +169,13 @@ namespace Sistema_automóviles.Forms
                 btnActu.Location = new Point(27, 371);//40,312
                 btnActu.AutoSize = true;
                 btnActu.Click += Btn_actualizar_auto;
+                btnActu.MouseHover += (sender, e) => MostrarMensajeBtn(sender, e, "Actualizar información del auto");
                 //btnActu.Font = precio.Font = new Font("Century Gothic", 11, FontStyle.Bold);
                 //btnActu.ForeColor = Color.FromArgb(0xF4, 0xF4, 0xF8);
-                btnActu.BackColor = Color.FromArgb(0xFF, 0x5F, 0x00);
+                btnActu.BackColor = Color.FromArgb(0x79, 0x93, 0x51);
                 btnActu.FlatStyle = FlatStyle.Flat;
                 btnActu.FlatAppearance.BorderSize = 0;
+                btnActu.IconColor = Color.FromArgb(0xFF, 0xE8, 0xC5);
                 panel.Controls.Add(btnActu);
                 //Botón eliminar
                 IconButton btnEli = new IconButton();
@@ -180,12 +184,14 @@ namespace Sistema_automóviles.Forms
                 btnEli.Size = new Size(60, 20);////94,29
                 btnEli.Location = new Point(95, 371);
                 btnEli.Click += Btn_eliminar_auto;
+                btnEli.MouseHover += (sender, e) => MostrarMensajeBtn(sender, e, "ELIMINAR AUTO");
                 btnEli.AutoSize = true;
                 //btnEli.Font = precio.Font = new Font("Century Gothic", 11, FontStyle.Bold);
                 //btnEli.ForeColor = Color.FromArgb(0xF4, 0xF4, 0xF8);
                 btnEli.BackColor = Color.FromArgb(0xFF, 0x00, 0x00);
                 btnEli.FlatStyle = FlatStyle.Flat;
                 btnEli.FlatAppearance.BorderSize = 0;
+                btnEli.IconColor = Color.FromArgb(0xFF, 0xE8, 0xC5);
                 panel.Controls.Add(btnEli);
                 //Botón ver
                 IconButton btnVer = new IconButton();
@@ -193,25 +199,29 @@ namespace Sistema_automóviles.Forms
                 btnVer.IconChar = IconChar.Car;
                 btnVer.Size = new Size(60, 20);//94,29
                 btnVer.Location = new Point(160, 371);
+                btnVer.MouseHover += (sender, e) => MostrarMensajeBtn(sender, e, "VER AUTO");
                 btnVer.Click += Btn_actualizar_auto;
                 btnVer.AutoSize = true;
                 //btnEli.Font = precio.Font = new Font("Century Gothic", 11, FontStyle.Bold);
                 //btnEli.ForeColor = Color.FromArgb(0xF4, 0xF4, 0xF8);
-                btnVer.BackColor = Color.FromArgb(0xFF, 0x00, 0x00);
+                btnVer.BackColor = Color.FromArgb(0xFC, 0x41, 0x00);
                 btnVer.FlatStyle = FlatStyle.Flat;
                 btnVer.FlatAppearance.BorderSize = 0;
+                btnVer.IconColor = Color.FromArgb(0xFF, 0xE8, 0xC5);
                 panel.Controls.Add(btnVer);
                 ////Botón vender
                 IconButton btnAdd = new IconButton();
                 btnAdd.Name = "Vender_" + auto.ID_auto.ToString();
                 btnAdd.IconChar = IconChar.CartPlus;
                 btnAdd.Size = new Size(60, 20);//94,29
-                btnAdd.Location = new Point(225, 371);
+                btnAdd.Location = new Point(225, 371); //225,371
+                btnAdd.MouseHover += (sender, e) => MostrarMensajeBtn(sender, e, "VENDER");
+                btnAdd.IconColor = Color.FromArgb(0xFF, 0xE8, 0xC5);
                 btnAdd.Click += Vender;
                 btnAdd.AutoSize = true;
                 ////btnEli.Font = precio.Font = new Font("Century Gothic", 11, FontStyle.Bold);
                 ///btnEli.ForeColor = Color.FromArgb(0xF4, 0xF4, 0xF8);
-                btnVer.BackColor = Color.FromArgb(0xFF, 0x00, 0x00);
+                btnVer.BackColor = Color.FromArgb(0xFC, 0x41, 0x00);
                 btnVer.FlatStyle = FlatStyle.Flat;
                 btnVer.FlatAppearance.BorderSize = 0;
                 panel.Controls.Add(btnAdd);
@@ -337,6 +347,29 @@ namespace Sistema_automóviles.Forms
             var auto = db.GetAutoByID(Convert.ToInt32(boton.Name.Substring(index + 1)));
             Frm_hacer_venta venta = new Frm_hacer_venta(auto);
             venta.ShowDialog();
+        }
+
+        private void Agregar_MouseHover(object sender, EventArgs e)
+        {
+            MostrarMensajeBtn(sender, e, "AGREGAR AUTO");
+        }
+
+        private void BtnVentas_MouseHover(object sender, EventArgs e)
+        {
+            MostrarMensajeBtn(sender, e, "VISUALIZAR VENTAS");
+        }
+
+        private void MostrarMensajeBtn(object? sender, EventArgs e, string msj)
+        {
+            if (sender is Button btn)
+            {
+                toolTip1.AutoPopDelay = 5000;
+                toolTip1.InitialDelay = 500;
+                toolTip1.ReshowDelay = 1000;
+                toolTip1.ShowAlways = true;
+
+                toolTip1.SetToolTip(btn, msj);
+            }
         }
     }
 }
