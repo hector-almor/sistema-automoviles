@@ -71,6 +71,8 @@ INSERT INTO Autos (ID_auto, Marca, Modelo, Año, Existencia, Costo, Precio) VALU
 (18, 'Mazda', 'CX-3', 2023, 12, 252000.00, 300000.00),
 (19, 'Subaru', 'Impreza', 2024, 10, 218400.00, 260000.00),
 (20, 'Subaru', 'Legacy', 2023, 8, 260400.00, 310000.00);
+#21, 'Nissan', 'Tsuru', 1984, 10, 50000.00, 56000.00
+
 
 INSERT INTO Proveedores (ID_proveedor, ID_auto, Nombre, Telefono, Correo, Direccion) VALUES
 (1, 1, 'Autos Súper', 5512345678, 'contacto@autosuper.com', 'Av. Insurgentes Sur 123, Ciudad de México'),

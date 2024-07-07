@@ -187,7 +187,6 @@
             label1.Size = new Size(123, 23);
             label1.TabIndex = 9;
             label1.Text = "REALIZAR VENTA";
-            label1.Click += label1_Click;
             // 
             // PicBox
             // 

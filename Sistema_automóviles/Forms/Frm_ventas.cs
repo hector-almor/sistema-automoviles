@@ -42,8 +42,8 @@ namespace Sistema_automóviles.Forms
 
         private void DGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = Convert.ToInt32(DGV.CurrentRow.Cells[0].Value);
-            if (e.ColumnIndex == 7 && e.RowIndex >= 0)
+            int id = Convert.ToInt32(DGV.CurrentRow.Cells["Número de venta"].Value);
+            if (e.ColumnIndex == DGV.Columns["Eliminar"].Index && e.RowIndex>=0)
             {
                 DialogResult result = MessageBox.Show("¿Desea eliminar la venta", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)

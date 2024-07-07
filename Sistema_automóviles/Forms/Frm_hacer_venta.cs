@@ -92,10 +92,5 @@ namespace Sistema_automóviles.Forms
                 db.HacerVenta(venta);
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
